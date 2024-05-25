@@ -86,7 +86,7 @@ export const DoCalculator = () => {
             </div>
             <div className="answer-container">
                 <input
-                    className="focus:outline-none text-5xl p-4 w-96 h-20 rounded"
+                    className="focus:outline-none text-5xl p-4 w-96 h-20 rounded border-2 border-black"
                     type="number"
                     value={userInput}
                     onChange={handleUserInput}
