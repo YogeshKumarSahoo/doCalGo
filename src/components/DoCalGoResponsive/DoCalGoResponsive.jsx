@@ -52,7 +52,7 @@ export const DoCalGoResponsive = () => {
                     setShowResponse(true);
                     setIsCorrect(false);
                     if('vibrate' in navigator){
-                        navigator.vibrate(100);
+                        navigator.vibrate(200);
                     }
                 }, 1000 * 0.2)
             }
