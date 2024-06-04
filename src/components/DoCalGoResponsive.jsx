@@ -5,8 +5,8 @@ import { ScoreCard } from "./ScoreCard"
 export const DoCalGoResponsive = () => {
 
     const [counter, setCounter] = useState({
-        correct: 0,
-        incorrect: 0,
+        correctCount: 0,
+        incorrectCount: 0,
         totalCount: 0
     });
 
@@ -47,6 +47,11 @@ export const DoCalGoResponsive = () => {
         }
     }
 
+    const handleUserInput = (e) => {
+        setUserInput(e.target.value);
+        isCorrectAnswer(e.target.value);
+    }
+
     useEffect(() => {
         const number1 = generateNumber();
         const number2 = generateNumber();
@@ -61,9 +66,17 @@ export const DoCalGoResponsive = () => {
 
   return (
     <div>
-        <ScoreCard correct={counter.correct} incorrect={counter.incorrect} />
+        <ScoreCard correct={counter.correctCount} incorrect={counter.incorrectCount} />
         <div className="p-10">
             <Question number1={question.number1} operation={question.operation} number2={question.number2} />
+            <div className="answer-container flex justify-center">
+                <input
+                    className="focus:outline-none text-5xl p-4 w-72 md:w-96 h-20 rounded border-2 border-black"
+                    type="number"
+                    value={userInput}
+                    onChange={handleUserInput}
+                />
+            </div>
         </div>
     </div>
   )
