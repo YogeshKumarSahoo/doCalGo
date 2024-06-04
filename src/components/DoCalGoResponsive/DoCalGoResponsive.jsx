@@ -36,6 +36,9 @@ export const DoCalGoResponsive = () => {
                     })
                     setShowResponse(true);
                     setIsCorrect(true);
+                    if('vibrate' in navigator){
+                        navigator.vibrate(50);
+                    }
                 }, 1000 * 0.2)
             } else {
                 setTimeout(() => {
@@ -48,6 +51,9 @@ export const DoCalGoResponsive = () => {
                     });
                     setShowResponse(true);
                     setIsCorrect(false);
+                    if('vibrate' in navigator){
+                        navigator.vibrate(200);
+                    }
                 }, 1000 * 0.2)
             }
 
