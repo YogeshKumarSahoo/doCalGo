@@ -1,4 +1,4 @@
-import { DoCalGoResponsive } from './components/DoCalGoResponsive'
+import { DoCalGoResponsive } from './components/DoCalGoResponsive/DoCalGoResponsive'
 
 function App() {
 

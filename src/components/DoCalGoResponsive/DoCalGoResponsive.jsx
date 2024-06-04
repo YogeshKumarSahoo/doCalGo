@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
-import { Question } from "./Question"
-import { ScoreCard } from "./ScoreCard"
+import { Question } from "../Question"
+import { ScoreCard } from "../ScoreCard"
+import "./DoCalGoResponsive.css"
 
 export const DoCalGoResponsive = () => {
 
@@ -83,7 +84,7 @@ export const DoCalGoResponsive = () => {
             <div className="answer-container flex justify-center">
                 <input
                     className={`focus:outline-none text-5xl p-4 w-72 md:w-96 h-20 rounded 
-                        ${showResponse ? (isCorrect ? "border-green-500 border-4" : "border-red-500 border-4") : "border-black border-2"}
+                        ${showResponse ? (isCorrect ? "border-green-500 border-4 green-shadow" : "border-red-500 border-4 red-shadow") : "border-black border-2 no-shadow"}
                     `}
                     type="number"
                     value={userInput}
