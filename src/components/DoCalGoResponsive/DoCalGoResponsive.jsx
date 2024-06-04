@@ -66,6 +66,26 @@ export const DoCalGoResponsive = () => {
     }
 
     useEffect(() => {
+
+        fetch("https://docalgo-bsckend.onrender.com/track-visit", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                timestamp: new Date().toISOString(),
+                url: window.location.href,
+                referrer: document.referrer,
+                userAgent: navigator.userAgent,
+                language: navigator.language,
+                screenResolution: `${window.screen.width}x${window.screen.height}`,
+                viewportSize: `${window.innerWidth}x${window.innerHeight}`,
+                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                platform: navigator.platform,
+            }),
+        });
+
+
         const number1 = generateNumber();
         const number2 = generateNumber();
         setQuestion({
