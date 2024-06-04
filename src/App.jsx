@@ -1,11 +1,11 @@
-import './App.css'
-import { DoCalculator } from './components/DoCalculator'
+import { DoCalGoResponsive } from './components/DoCalGoResponsive'
 
 function App() {
 
   return (
     <>
-      <DoCalculator />  
+      {/* <DoCalculator /> */}
+      <DoCalGoResponsive />
     </>
   )
 }
