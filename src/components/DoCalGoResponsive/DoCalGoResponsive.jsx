@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
-import { Question } from "./Question"
-import { ScoreCard } from "./ScoreCard"
+import { Question } from "../Question"
+import { ScoreCard } from "../ScoreCard"
+import "./DoCalGoResponsive.css"
 
 export const DoCalGoResponsive = () => {
 
@@ -13,6 +14,8 @@ export const DoCalGoResponsive = () => {
     const [question, setQuestion] = useState({});
     const [userInput, setUserInput] = useState("");
     const [reload, setReload] = useState(false);
+    const [showResponse, setShowResponse] = useState(false);
+    const [isCorrect, setIsCorrect] = useState(false);
 
     const generateNumber = () => {
         const randomNumber = Math.floor(Math.random() * 10) + 1;
@@ -30,8 +33,10 @@ export const DoCalGoResponsive = () => {
                         ...counter,
                         correctCount: counter.correctCount + 1,
                         totalCount: counter.totalCount + 1,
-                    }, 1000 * 0.2)
-                })
+                    })
+                    setShowResponse(true);
+                    setIsCorrect(true);
+                }, 1000 * 0.2)
             } else {
                 setTimeout(() => {
                     setReload(true);
@@ -40,8 +45,10 @@ export const DoCalGoResponsive = () => {
                         ...counter,
                         incorrectCount: counter.incorrectCount + 1,
                         totalCount: counter.totalCount + 1,
-                    }, 1000 * 0.2);
-                })
+                    });
+                    setShowResponse(true);
+                    setIsCorrect(false);
+                }, 1000 * 0.2)
             }
 
         }
@@ -61,7 +68,12 @@ export const DoCalGoResponsive = () => {
             operation: "+",
             answer: number1 + number2,
         });
-        if (reload) setReload(false);
+        if (reload) {
+            setReload(false);
+            setTimeout(() => {
+                setShowResponse(false);
+            }, 1000 * 0.2)
+        }
     }, [reload]);
 
   return (
@@ -71,7 +83,9 @@ export const DoCalGoResponsive = () => {
             <Question number1={question.number1} operation={question.operation} number2={question.number2} />
             <div className="answer-container flex justify-center">
                 <input
-                    className="focus:outline-none text-5xl p-4 w-72 md:w-96 h-20 rounded border-2 border-black"
+                    className={`focus:outline-none text-5xl p-4 w-72 md:w-96 h-20 rounded 
+                        ${showResponse ? (isCorrect ? "border-green-500 border-4 green-shadow" : "border-red-500 border-4 red-shadow") : "border-black border-2 no-shadow"}
+                    `}
                     type="number"
                     value={userInput}
                     onChange={handleUserInput}
