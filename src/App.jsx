@@ -1,7 +1,6 @@
 import { DoCalGoResponsive } from './components/DoCalGoResponsive/DoCalGoResponsive'
 
 function App() {
-
   return (
     <>
       {/* <DoCalculator /> */}
