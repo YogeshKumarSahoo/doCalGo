@@ -23,8 +23,3 @@ We are continuously working on new features to enhance your experience, includin
 - Personalized learning paths and challenges.
 
 Stay tuned for upcoming releases that will include these features and much more!
-
-## Visit Tracker
-
-Track your visits here: [Visit Tracker](https://docalgo-bsckend.onrender.com/show-visits)
-
